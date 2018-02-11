@@ -1,0 +1,25 @@
+<mat-card>
+  <div class="row">
+    <div class="col-md-3">
+      <a href="#">
+        <img src="../../assets/images/hotels/{{hotelObject.image}}" style="width: 100%" alt="Hotel Image">
+      </a>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-7">
+          <h3 class="media-heading blue-title">{{hotelObject.name}}</h3>
+          <review-stars [starsNumber]="hotelObject.stars"></review-stars>
+          <amenities [amenityNames]="hotelObject.amenities"></amenities>
+        </div>
+        <br>
+        <div class="col-md-5 text-center price-div">
+          <br>
+          <p class="price-title">Precio por noche por habitación</p>
+          <p><span class="currency">ARS</span><span class="price-value">{{hotelObject.price|number:'1.0-0'}}</span></p>
+          <button class="btn btn-lg btn-app">Ver hotel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-card>

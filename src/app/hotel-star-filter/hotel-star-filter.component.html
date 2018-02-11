@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-title class="blue-title" (click)="toggle()">
+    <svg-icon class="header-filter-icon" src="../../assets/icons/filters/star.svg"></svg-icon> Estrellas
+    <span class="glyphicon" [ngClass]="{
+      'glyphicon-triangle-top': isExpanded,
+      'glyphicon-triangle-bottom': !isExpanded
+    }"></span>
+  </mat-card-title>
+  <div class="row" *ngIf="isExpanded">
+    <input type="checkbox" [checked]="isAllSelected" (click)="onCheckedAll()">
+    <span class="bold-title">Todas las estrellas</span>
+    <div *ngFor="let number of numbers">
+      <input type="checkbox" [checked]="startsSelected.indexOf(number)>-1" (click)="onChecked(number,$event.currentTarget.checked)">
+      <review-stars [starsNumber]="number"></review-stars>
+    </div>
+  </div>
+</mat-card>

@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-title class="blue-title" [class.expanded]="isExpanded" (click)="toggle()">
+    <svg-icon class="header-filter-icon" src="../../assets/icons/filters/search.svg"></svg-icon> Nombre del hotel
+    <span class="glyphicon" [ngClass]="{
+        'glyphicon-triangle-top': isExpanded,
+        'glyphicon-triangle-bottom': !isExpanded
+      }"></span>
+  </mat-card-title>
+  <div class="row" *ngIf="isExpanded">
+    <div class="col-md-8">
+      <input id="nameFilter" type="text" class="form-control" style="width:100%" (keyup.enter)="search()" placeholder="Ingerese el nombre del hotel"
+        [(ngModel)]="searchName">
+    </div>
+    <div class="col-md-4">
+      <button class="btn btn-app" (click)="search()">Aceptar</button>
+    </div>
+  </div>
+</mat-card>

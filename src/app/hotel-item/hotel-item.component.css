@@ -1,0 +1,38 @@
+.price-title {
+    color: gray; 
+    font-weight: bold;
+}
+.price-value {
+    color: orange; 
+    font-weight: bold;
+    font-size: 36px;
+}
+.currency {
+    color: orange; 
+    font-size: 24px;
+}
+
+/* @screen-xs-max: 767px;
+@screen-sm-min: 768px;
+@screen-sm-max: 991px;
+@screen-md-min: 992px;
+@screen-md-max: 1199px;
+@screen-lg-min: 1200px; */
+
+@media(max-width: 991px) {
+    .price-div {
+        border-top: 3px dashed;
+        border-color:lightgray;
+        height: 100%;
+    }
+}
+
+@media(min-width: 992px) {
+    .price-div {
+        border-left: 3px dashed;
+        border-color:lightgray;
+        height: 100%;
+    }
+}
+
+

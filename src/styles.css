@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background-color: #eeeeee;
+}
+
+.blue-title {
+  color: #2196F3; 
+  font-weight: bold;
+}
+
+.bold-title {
+  font-weight: bold;
+}
+
+.btn-app {
+  width: 100%;
+  color: white;
+  background-color:darkblue; 
+}
+
+.header-filter-icon {
+  fill: #2196F3;
+  width: 20px;
+}
+
+

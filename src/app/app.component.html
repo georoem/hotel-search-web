@@ -9,7 +9,7 @@
 </nav>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
         <mat-card><h4 class="bold-title">Filtros</h4></mat-card>
         <br>
         <hotel-name-filter (onSearchName)="onSearchName($event)"></hotel-name-filter>
@@ -17,7 +17,7 @@
         <hotel-star-filter (onStarsSelected)="onStarsSelected($event)"></hotel-star-filter>
         <br>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-8">
         <hotel-list [hotelArray]="hotels"></hotel-list>
     </div>
   </div>

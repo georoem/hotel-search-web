@@ -1,6 +1,6 @@
-// import { BadInput } from './../common/bad-input';
-// import { NotFoundError } from './../common/not-found-error';
-// import { AppError } from './../common/app-error';
+import { BadInput } from './../common/bad-input';
+import { NotFoundError } from './../common/not-found-error';
+import { AppError } from './../common/app-error';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
@@ -12,49 +12,47 @@ import 'rxjs/add/observable/throw';
 export class DataService {
   constructor(private url: string, private http: HttpClient) { }
 
-  getByFilter(payload: any) {
-    const options = {
-      params: new HttpParams().set('name', payload.name).append('stars', payload.stars)
-    };
+  getHttp() {
+    return this.http;
+  }
 
-    return this.http.get(this.url + '/filter/', options)
-      .map(response => response)
-    //   .catch(this.handleError);
+  getUrl() {
+    return this.url;
   }
 
   getAll() {
     return this.http.get(this.url)
       .map(response => response)
-    //   .catch(this.handleError);
+      .catch(this.handleError);
   }
 
   create(resource) {
     return this.http.post(this.url, JSON.stringify(resource))
       .map(response => response)
-    //   .catch(this.handleError);
+      .catch(this.handleError);
   }
 
   update(resource) {
     return this.http.patch(this.url + '/' + resource.id, JSON.stringify({ isRead: true }))
       .map(response => response)
-    //   .catch(this.handleError);
+      .catch(this.handleError);
   }
 
   delete(id) {
     return this.http.delete(this.url + '/' + id)
       .map(response => response)
-    //   .catch(this.handleError);
+      .catch(this.handleError);
   }
 
-//   private handleError(error: Response) {
-//     if (error.status === 400) {
-//       return Observable.throw(new BadInput(error.json()));
-//     }
+  handleError(error: Response) {
+    if (error.status === 400) {
+      return Observable.throw(new BadInput(error.json()));
+    }
 
-//     if (error.status === 404) {
-//       return Observable.throw(new NotFoundError());
-//     }
+    if (error.status === 404) {
+      return Observable.throw(new NotFoundError());
+    }
 
-//     return Observable.throw(new AppError(error));
-//   }
+    return Observable.throw(new AppError(error));
+  }
 }
